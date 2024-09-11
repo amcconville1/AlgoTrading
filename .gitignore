@@ -1,0 +1,20 @@
+# Ignore Python bytecode files
+*.pyc
+__pycache__/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore virtual environment directory 
+venv/
+
+# Ignore data files (Raw data files)
+data/raw/
+data/processed/
+
+# Ignore system files
+.DS_store
+Thumbds.db
+
+# Ignore VSCode settings
+.vscode/
