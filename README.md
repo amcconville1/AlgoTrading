@@ -1,6 +1,3 @@
-A New Hope
-
-A new hope is my Algotrading Bot.
 
 How It's Made:
 
