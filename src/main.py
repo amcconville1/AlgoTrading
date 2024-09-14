@@ -13,8 +13,8 @@ if __name__ == "__main__":
     crypto_ticker_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'crypto_ticker.txt'))
 
     # Define date range for stocks
-    start_date = '2020-01-01'
-    end_date = '2023-01-01'
+    start_date = '2024-01-01'
+    end_date = '2024-09-14'
 
     # Ensure start_date is before end_date
     start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
