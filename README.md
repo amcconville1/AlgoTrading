@@ -20,6 +20,21 @@ run python src/main.py
 
 
 
+For cleaning the data using pandas.
+When to use Drop vs Fill
+Drop:
+    - you have infrequent data.
+    - Avoid Bias
+    - Short-term Strategies
+Fill:
+    - Need Continuous Data
+    - Back-testing
+    - Small Gaps in data
+    - Infrequent missing data
+
+Selecting Fill and Drop can be important when cleaning data and trying to ensure you have accurately backtested a strategy. 
+Ideally, you won't need to drop or fill rows often.
+
 TODO:
 
-Jupyter Notebooks
+Implement Jupyter Notebooks
