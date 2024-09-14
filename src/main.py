@@ -1,37 +1,30 @@
-import sys
 import os
+from data_fetcher import DataFetcher
 from datetime import datetime
-from data_fetcher import CryptoDataFetcher
-
-# Add the src directory to the system path
-src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
-if src_path not in sys.path:
-    sys.path.append(src_path)
-# print(sys.path) # Prints sys.path to debug
-
-
-from data_manager import StockDataFetcher
 
 if __name__ == "__main__":
-    ticker_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'tickers.txt'))
-    start_date = '2018-01-01'
-    end_date = '2018-01-05'
+    # Define paths for ticker files
+    stock_ticker_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'stock_ticker.txt'))
+    crypto_ticker_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'crypto_ticker.txt'))
 
-    start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
-    end_date_obj =  datetime.strptime(end_date, '%Y-%m-%d')
-    
+    # Define date range for stocks
+    start_date = '2018-01-01'
+    end_date = '2023-01-01'
+
     # Ensure start_date is before end_date
+    start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
+    end_date_obj = datetime.strptime(end_date, '%Y-%m-%d')
+
     if start_date_obj >= end_date_obj:
         raise ValueError("Start_date must be before end_date.")
 
-    data_manager = StockDataFetcher(ticker_file, start_date, end_date)
-    data_manager.fetch_and_save_all_data()
+    # Initialize DataFetcher
+    fetcher = DataFetcher()
 
-    # Crypto fetcher
-    # Likely need to comment ou tthe top stock fetcher and uncomment below to grab crypto history.
-    ### TODO NEED TO REFACTOR TO EXECUTE BOTH BASED ON WHAT?
+    # Fetch stock data
+    print("Fetching stock data...")
+    fetcher.fetch_stock_data(stock_ticker_file, start_date, end_date)
 
-    # fetcher = CryptoDataFetcher()
-    # symbol = 'BTC/USDT' # Bitcoin to USDT
-    # data = fetcher.fetch_data(symbol)
-    # fetcher.save_data(data, symbol)
+    # Fetch crypto data
+    print("Fetching crypto data...")
+    fetcher.fetch_crypto_data(crypto_ticker_file)
