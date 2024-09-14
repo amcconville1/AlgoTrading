@@ -9,9 +9,7 @@ __pycache__/
 venv/
 
 # Ignore data files (Raw data files)
-data/raw/
-data/processed/
-data/crypto
+data/
 
 # Ignore system files
 .DS_store
