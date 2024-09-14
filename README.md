@@ -1,3 +1,6 @@
+A New Hope
+
+A new hope is my Algotrading Bot.
 
 How It's Made:
 
@@ -9,5 +12,10 @@ ccxt for crypto data
 How to run application for now:
 
 Fetching Stock Data:
-python src/test_data_fetching.py
+python src/test_stock_data_fetching.py
 
+
+
+TODO:
+
+Jupyter Notebooks
