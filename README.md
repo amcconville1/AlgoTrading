@@ -12,7 +12,11 @@ ccxt for crypto data
 How to run application for now:
 
 Fetching Stock Data:
-python src/test_stock_data_fetching.py
+
+To run simply edit the ticker.txt files with the Stock data you want to gather.
+cd to folder.
+run venv source /bin/Scripts/activate
+run python src/main.py
 
 
 
