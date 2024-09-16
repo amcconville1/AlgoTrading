@@ -1,7 +1,3 @@
-A New Hope
-
-A new hope is my Algotrading Bot.
-
 How It's Made:
 
 Tech used: Python, MT4/5, Jupyter Notebooks, TBD
