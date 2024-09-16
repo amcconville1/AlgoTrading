@@ -17,3 +17,6 @@ Thumbds.db
 
 # Ignore VSCode settings
 .vscode/
+
+# Ignore stock_ticker information
+stock_ticker.txt
