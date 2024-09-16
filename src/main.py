@@ -53,6 +53,9 @@ if __name__ == "__main__":
     # Calculate 14-day RSI
     analyzer.calculate_rsi(window=14)
 
+    # Drop rows with missing values (NaN) These will be the first 49 days of data because to calculate SMA you need 49 days of data. To calculate Volatility you need 20 days of data. And RSI needs 14 days of data.
+    analyzer.df.dropna(inplace=True)
+
     # Plot the closing price, moving average, and RSI
     # analyzer.plot(columns=['Close', 'SMA_50', 'RSI'])
 
