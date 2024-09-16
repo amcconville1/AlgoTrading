@@ -8,12 +8,12 @@ class StockAnalyzer:
         self.df = None  # Placeholder for the DataFrame
 
     def load_data(self):
-        """Load the stock data from the CSV file."""
+        """Load the stock data from the CSV file (no explicit date handling)."""
+        # Load the CSV without trying to convert the index to dates
         self.df = pd.read_csv(self.stock_file)
-        self.df.index = pd.to_datetime(self.df['Date'])  # Assuming 'Date' is the column name for the date
         return self.df
 
-    def calculate_moving_average(self, window=50): # Window is closing prices over a given period in days. (50 days default.)
+    def calculate_moving_average(self, window=50):
         """Calculate the moving average for the given window size."""
         column_name = f'SMA_{window}'
         self.df[column_name] = self.df['Close'].rolling(window=window).mean()
