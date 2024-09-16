@@ -2,10 +2,11 @@ import os
 from datetime import datetime
 from data_fetcher import DataFetcher
 from data_cleaner import clean_all_stock_files
+from stock_analyzer import StockAnalyzer
 
 if __name__ == "__main__":
     
-    # Initialize DataFetcher and DataCleaner
+    # Initialize DataFetcher and Stock Analyzer
     fetcher = DataFetcher()
     
     # Define paths for ticker files
@@ -33,3 +34,27 @@ if __name__ == "__main__":
 
     # Clean all stock files in the data/stocks directory
     clean_all_stock_files(data_dir='data/stocks', cleaned_data_dir='data/cleaned_stocks')
+
+    # Example stock file (assumed to be cleaned and in CSV format)
+    stock_file = 'data/cleaned_stocks/MSFT.csv'
+
+    # Initialize StockAnalyzer with the stock file
+    analyzer = StockAnalyzer(stock_file)
+
+    # Load the stock data
+    df = analyzer.load_data()
+
+    # Calculate a 50-day moving average
+    analyzer.calculate_moving_average(window=50)
+
+    # Calculate 20-day volatility
+    analyzer.calculate_volatility(window=20)
+
+    # Calculate 14-day RSI
+    analyzer.calculate_rsi(window=14)
+
+    # Plot the closing price, moving average, and RSI
+    # analyzer.plot(columns=['Close', 'SMA_50', 'RSI'])
+
+    # Save the analyzed data to a new CSV file
+    analyzer.save_to_csv('data/Analyzed_stock/MSFT_analyzed.csv')
