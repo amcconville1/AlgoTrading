@@ -15,7 +15,7 @@ spec:
             app: algo-trading-app
         spec:
           containers:
-            - name: algo-trading-app
+            - name: stock-data-analyzer
               image: your-docker-image:latest
               env:
                 - name: API_KEY
