@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-algo-app-deployment
+  name: algo-trading-bot
   labels:
-    app: my-algo-app
+    app: algo-trading-bot
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-algo-app
+      app: algo-trading-bot
   template:
     metadata:
       labels:
-        app: my-algo-app
+        app: algo-trading-bot
     spec:
       containers:
-        - name: my-algo-app
-          image: my-algo-app:1.0.0
-          ports:
-            - containerPort: 8080
+        - name: algo-trading-bot
+          image: algo-trading-bot:1.0.0
+          # Logs are collected by kubernetes and analyzed. No need to expose any ports.
+
