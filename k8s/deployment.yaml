@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-algo-app-deployment
+  labels:
+    app: my-algo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-algo-app
+  template:
+    metadata:
+      labels:
+        app: my-algo-app
+    spec:
+      containers:
+        - name: my-algo-app
+          image: my-algo-app:1.0.0
+          ports:
+            - containerPort: 8080
