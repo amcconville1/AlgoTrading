@@ -18,6 +18,17 @@ cd to folder.
 run venv source /bin/Scripts/activate
 run python src/main.py
 
+###
+# How to run minikube service
+###
+to run in minikube
+eval $(minikube docker-env)
+docker build -t my-python-app:1.0.0 .
+kubectl apply -f k8s/
+kubectl get pods
+kubectl get services
+minikube ip
+navigate in a browser to http://ip.given.:30007
 
 
 For cleaning the data using pandas.
