@@ -3,9 +3,12 @@ kind: CronJob
 metadata:
   name: algo-trading-app
 spec:
-  schedule: "*/15 * * * *"  # Runs every 15 minutes
+  schedule: "*/15 * * * *"
+  concurrencyPolicy: "Forbid"
   jobTemplate:
     spec:
+      backoffLimit: 3
+      activeDeadlineSeconds: 600
       template:
         metadata:
           labels:
@@ -13,12 +16,18 @@ spec:
         spec:
           containers:
             - name: algo-trading-app
-              image: your-docker-image:latest  # Replace with your Docker image
+              image: your-docker-image:latest
               env:
                 - name: API_KEY
                   valueFrom:
                     secretKeyRef:
                       name: stock-data-api-key
                       key: api-key
-                # Add other environment variables or configurations as needed
+              resources:
+                requests:
+                  memory: "512Mi"
+                  cpu: "500m"
+                limits:
+                  memory: "1Gi"
+                  cpu: "1"
           restartPolicy: OnFailure
